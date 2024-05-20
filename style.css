@@ -247,25 +247,26 @@ body {
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: purple; /* Changed to purple as requested */
+    background-color: purple;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    margin-bottom:8px ;
+    margin-bottom: 8px;
     padding: 10px 0;
     position: absolute;
     z-index: 1;
     bottom: 100%;
     left: 50%;
     margin-left: -60px;
-    opacity: 0;
-    transition: opacity 1s;
+    transform: scaleY(0); /* Start with no height */
+    transform-origin: bottom; /* Expand from the bottom */
+    transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
-    top: 100%; /* Arrow should be at the bottom of the tooltip */
+    top: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -275,8 +276,9 @@ body {
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
-    opacity: 1;
+    transform: scaleY(1); /* Expand to full height */
 }
+
 .badge {
     width: 8em;
     height: 6em;
