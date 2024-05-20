@@ -1,0 +1,317 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 20px; 
+}
+
+.section {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 1em;
+}
+.block1{
+    width: 500px;
+    height: 200px;
+    padding: 1em;
+
+}
+.block2{
+    width: 300px;
+    height: 200px;
+    padding: 1em;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.addItem input[type="text"] {
+    margin-bottom: 1.5em;
+    margin-right: 0em;
+    width: 37em;
+    height: 2em;
+    padding-left: 4px;
+    padding-right: 0em;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0px 0px 4px ;
+}
+.addItem{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.addItem .add {
+    margin: 0;
+    padding: 0;
+    border: 0em;
+    border-left: none;
+    background-color: rgb(118, 186, 250);
+    color: white;
+    text-align: center;
+    width: 8em;
+    height: 2.4em;
+    border-radius: 0px 4px 4px 0px;
+    box-shadow: inset 0em -0.4em rgb(100, 159, 214);
+}
+
+.product {
+    border-top: 1px solid #ccc;
+    padding-top: 0.5em;
+    border-width: 100%;
+    display: flex ;
+    justify-content: space-between;
+    height: 3em;
+    max-width: 40rem;
+    flex:1;
+}
+.nameProduct {
+    width: 5em;
+    padding: 0px;
+    margin: 0;
+    flex: 1;
+}
+
+.boughtT{
+    justify-content:  space-evenly;
+    align-items: row;
+    margin-left: 0.2em;
+}
+
+.product input{
+    margin-right: 2em;
+    height: 2em;
+}
+
+
+.firstSq {
+    margin-right: 5rem;
+}
+
+.bought{
+    width: 10em;
+    height: 3em;
+    border-radius: 0.5em;
+    background-color: #e1e1e1;
+    border: 1px solid #e1e1e1;
+    box-shadow:  inset  0em -0.5em lightgrey;
+ 
+}
+
+.cross{
+    height: 3em;
+    width: 3em;
+    background-color: rgb(249, 57, 57);
+    color: white;
+    border-radius: 0.5em;
+    border: none;
+    box-shadow: 0px 3px 5px  rgb(125, 12, 35);
+}
+.plus,
+.minus {
+    border-radius: 3em;
+    width: 3em;
+    height: 3em;
+    color: white;
+    border: 0;
+}
+
+.minus {
+    background-color: red;
+    box-shadow: 0px 3px 5px rgb(125, 12, 35);
+    margin-right: 3px;
+}
+
+.plus {
+    background-color: rgb(2, 207, 23);
+    box-shadow: 0px 3px 5px rgb(12, 135, 25);
+}
+
+.square {
+    background-color: rgb(207, 207, 207);
+    width: 2em;
+    height: 2em;
+    border-radius: 0.5em;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
+}
+
+.funcButtons {
+    display: flex;
+    flex-direction: row;
+    max-width: 7rem;
+}
+
+.crossUmv {
+    visibility: hidden;
+    margin-right: 0.75em;
+}
+.namePr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tomatoes{
+    text-decoration: line-through;
+    max-height: 2.5em;
+    margin-top: 0.06em;
+
+}
+
+
+
+.item{
+    width: 8em;
+    height: 3em;
+    border-radius: 0.5em;
+    background-color: #e1e1e1;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0px 3px 5px  #b9b6b6;
+}
+
+.circle {
+    border-radius: 50%; 
+    width: 1.5em; 
+    height: 1.5em; 
+    background-color: orange;
+    display: inline-flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+}
+.title {
+    font-size: 16px;
+    padding-bottom: 1em;
+
+}
+
+.title {
+    font-size: 16px;
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top:0;
+    padding-top: 0.03em;
+    font-size: 18px;
+ 
+}
+
+.boughtItems {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 8em 1em; 
+ 
+}
+.boughtTitle{
+ padding-top: 1em;
+ padding-bottom: 0;
+ margin-bottom: 0;
+    
+}
+
+.cheese {
+    max-width: 6em;
+}
+
+@media (max-width: 750px) {
+    .container{
+        flex-direction: column;
+        align-items: left;
+    }
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: purple; /* Changed to purple as requested */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    margin-bottom:8px ;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow should be at the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: purple transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.badge {
+    width: 8em;
+    height: 6em;
+    position: fixed;
+    bottom: -3.5em; /* Виходить за межі екрана знизу */
+    left: 1em; 
+    background-color: rgb(199, 7, 199); 
+    color: #ffffff; 
+    text-align: center;
+    padding: 10px; 
+    font-size: 16px; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    cursor: pointer; 
+    transition: bottom 0.5s ease ; 
+
+}
+.badge:hover {
+    bottom:-2px; /* Нове місце під час наведення */
+    background-color: blue;
+}
+  
+  #badge-title {
+    display: none;
+}
+
+@media print {
+    .badge {
+        background-color: #ffffff; 
+        color: #000000; 
+        border: 2px solid rgb(199, 7, 199); 
+        z-index: 900;
+        margin-top: 4em;
+    }
+
+    #badge-title {
+        display: block; /* показати заголовок */
+    }
+    #firstTitle {
+        display: none;
+    }
+}

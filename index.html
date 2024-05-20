@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Sections Side by Side</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="section block1">
+         <div class="addItem">
+            <input type="text" placeholder="Назва товару">
+            <button class="add tooltip">Додати
+                <span class="tooltiptext">Додати продукт</span>   
+            </button>
+        </div>
+
+        <div class="product">
+            <div class="namePr">
+            <label class="nameProduct tomatoes">Помідори</label>
+            </div>
+            <div class="funcButtons">
+              <!-- <button class="crossUmv">-</button>--> 
+                <span class="square">2</span>
+               <!--  <button class="crossUmv">+</button>--> 
+             </div>
+             <div>
+               <button class="crossUmv">x</button>
+            <button class="bought tooltip">Не куплено
+                <span class="tooltiptext">Продукт не було куплено</span>   
+            </button>
+             </div>
+        </div>
+        <div class="product">
+            <div class="namePr">
+            <label class="nameProduct cookie ">Печиво</label>
+            </div>
+          <div class="funcButtons">
+            <button class="minus tooltip">-
+                <span class="tooltiptext">Зменшити кількість продукту</span>   
+            </button>
+            <span class="square">2</span>
+            <button class="plus tooltip">+
+                <span class="tooltiptext">Збільшити кількість продукту</span>   
+            </button>
+         </div>
+         <div class="boughtT"> 
+            <button class="bought tooltip">Куплено
+                <span class="tooltiptext">Продукт було куплено</span>   
+            </button>
+            <button class="cross tooltip">x
+                <span class="tooltiptext">Закрити</span>   
+            </button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="namePr">
+           <input type="text" placeholder="сир"  class="nameProduct ">
+           </div>
+           <div class="funcButtons">
+            <button class="minus tooltip">-
+                <span class="tooltiptext">Зменшити кількість продукту</span>   
+            </button>
+            <span class="square">
+                1</span>
+            <button class="plus tooltip" >+
+                <span class="tooltiptext">Збільшити кількість продукту</span>   
+            </button>
+         </div>
+         <div class="boughtT"> 
+            <button class="bought tooltip">Куплено
+                <span class="tooltiptext">Продукт було куплено</span>   
+            </button>
+            <button class="cross tooltip">x
+                <span class="tooltiptext">Закрити</span>   
+            </button>
+        </div> 
+        </div>
+        </section>
+        <section class="section block2">
+           <div class="title">
+            <label >Залишилося</label>
+         </div> 
+         <div class="product"> 
+            <div class="boughtItems">
+            <button class="bought">Печиво <span class="circle">2</span></button>
+            <button class="bought cheese">Сир <span class="circle">1</span></button>
+            </div>
+        </div>  
+
+        <div class="title">
+            <label class="boughtTitle">Куплено</label>
+        </div> 
+        <div class="product tomatoes"> 
+            <button class="bought ">Помідори</button>
+        </div>  
+        </section>
+
+        <section class="badge">
+            <span>
+                <h3 id="firstTitle"> Buy List</h3>
+                <h3 id="badge-title">Created by</h3>
+                <p>Author: Svitlana Lorman</p>
+            </span>
+        </section>
+    </div>
+</body>
+</html>
