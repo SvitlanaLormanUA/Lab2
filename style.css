@@ -233,6 +233,10 @@ body {
         flex-direction: column;
         align-items: left;
     }
+
+    .block2{
+        width:500px;
+    }
 }
 .tooltip {
     position: relative;
