@@ -59,7 +59,7 @@ body {
     width: 8em;
     height: 2.4em;
     border-radius: 0px 4px 4px 0px;
-    box-shadow: inset 0em -0.4em rgb(100, 159, 214);
+    box-shadow: inset 0em -0.4em hsl(210, 99%, 39%);
     cursor: pointer;
 }
 .add:hover{
@@ -310,7 +310,7 @@ body {
     width: 8em;
     height: 6em;
     position: fixed;
-    bottom: -3.5em; /* Виходить за межі екрана знизу */
+    bottom: -3.5em; 
     left: 1em; 
     background-color: rgb(199, 7, 199); 
     color: #ffffff; 
@@ -324,7 +324,7 @@ body {
 
 }
 .badge:hover {
-    bottom:-2px; /* Нове місце під час наведення */
+    bottom:-2px; 
     background-color: blue;
 }
   
