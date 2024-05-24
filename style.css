@@ -342,7 +342,7 @@ body {
     }
 
     #badge-title {
-        display: block; /* показати заголовок */
+        display: block; /*show title*/
     }
     #firstTitle {
         display: none;
