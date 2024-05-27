@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two Sections Side by Side</title>
+    <title>Buy List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <section class="section block1">
          <div class="addItem">
-            <input type="text" placeholder="Назва товару">
-            <button class="add tooltip">Додати
+            <input type="text" placeholder="Назва товару" id="productNameInput">
+            <button class="add tooltip" id="addProductButton">Додати
                 <span class="tooltiptext">Додати продукт</span>   
             </button>
         </div>
 
+       <div id="productList"> 
         <div class="product">
             <div class="namePr">
             <label class="nameProduct tomatoes">Помідори</label>
@@ -77,8 +78,10 @@
             </button>
         </div> 
         </div>
+    </div>  
         </section>
         <section class="section block2">
+          <div id ="left"> 
            <div class="title">
             <label >Залишилося</label>
          </div> 
@@ -88,13 +91,16 @@
             <button class="bought cheese">Сир <span class="circle">1</span></button>
             </div>
         </div>  
+    </div> 
 
+    <div id="alrB">
         <div class="title">
             <label class="boughtTitle">Куплено</label>
         </div> 
-        <div class="product tomatoes"> 
+        <div class="product tomatoes left"> 
             <button class="bought ">Помідори</button>
         </div>  
+    </div>   
         </section>
 
         <section class="badge">
@@ -105,5 +111,6 @@
             </span>
         </section>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
