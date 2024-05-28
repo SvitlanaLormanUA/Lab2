@@ -100,19 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const leftItem = boughtItems.querySelector(`[data-product-name="${originalName}"]`);
             const quantitySpan = productDiv.querySelector('.square');
 
-            // Check if the new name already exists among existing products
-            const existingProducts = document.querySelectorAll('.product');
-            let isDuplicate = false;
-            existingProducts.forEach(product => {
-                const productNameAttr = product.getAttribute('data-product-name');
-                if (productNameAttr && productNameAttr.toLowerCase() === newName.toLowerCase() && productNameAttr !== originalName) {
-                    alert('Продукт з такою назвою вже існує!');
-                    isDuplicate = true;
-                    return;
-                }
-            });
-
-            if (!isDuplicate) {
                 if (productNameLabel) {
                     productNameLabel.textContent = newName;
                 }
@@ -124,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const quantity = parseInt(quantitySpan.textContent);
                     leftItem.querySelector('.circle').textContent = quantity;
                 }
-            }
+            
         }
     }
 
@@ -135,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let isDuplicate = false;
             existingProducts.forEach(product => {
                 const productNameAttr = product.getAttribute('data-product-name');
-                if (productNameAttr && productNameAttr.toLowerCase() === productName.toLowerCase()) {
+               if (productNameAttr && productNameAttr.toLowerCase() === productName.toLowerCase()) {
                     alert('Продукт з такою назвою вже існує!');
                     isDuplicate = true;
                     return;
@@ -187,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         existingProducts.forEach(product => {
                             const productNameAttr = product.getAttribute('data-product-name');
-                            if (productNameAttr && productNameAttr.toLowerCase() === editedName.toLowerCase() && productNameAttr !== originalName.toLowerCase()) {
+                           if (productNameAttr && productNameAttr.toLowerCase() === editedName.toLowerCase() && productNameAttr !== originalName.toLowerCase() && editedName.toLowerCase()!==originalName.toLowerCase()) {
                                 alert('Продукт з такою назвою вже існує!');
                                 isDuplicate = true;
                                 return;
