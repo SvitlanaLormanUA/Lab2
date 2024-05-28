@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const leftItems = document.querySelector('.left');
     const block1 = document.querySelector('.block1');
     const block2 = document.querySelector('.block2');
-    
 
     function displayFromSt() {
         const fI = localStorage.getItem("firstItem");
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
             addProductToList(tI);
         }
     }
-   
 
     function addProductToList(productName) {
         const productDiv = document.createElement('div');
@@ -77,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const leftItem = document.createElement('button');
         leftItem.className = 'bought';
         const textDiv = document.createElement('div');
-        textDiv.className = 'secondBlocktext'
+        textDiv.className = 'secondBlocktext';
 
         leftItem.setAttribute('data-product-name', productName);
         textDiv.textContent = productName;
@@ -90,20 +88,18 @@ document.addEventListener('DOMContentLoaded', function () {
         boughtItems.appendChild(leftItem);
 
         block1.style.height = 'auto';
-        //(block1.offsetHeight + productDiv.offsetHeight - 30) + 'px';
         block2.style.height = 'auto';
-        //(block2.offsetHeight + productDiv.offsetHeight - 30) + 'px';
         block2.style.width = 'auto';
     }
 
     function editProductName(originalName, newName) {
         const productDiv = block2.querySelector(`[data-product-name="${originalName}"]`);
-    
+
         if (productDiv) {
             const productNameLabel = productDiv.querySelector('.nameProduct');
             const leftItem = boughtItems.querySelector(`[data-product-name="${originalName}"]`);
             const quantitySpan = productDiv.querySelector('.square');
-    
+
             // Check if the new name already exists among existing products
             const existingProducts = document.querySelectorAll('.product');
             let isDuplicate = false;
@@ -115,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return;
                 }
             });
-    
+
             if (!isDuplicate) {
                 if (productNameLabel) {
                     productNameLabel.textContent = newName;
@@ -131,10 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-    
-    
-    
-    
+
     function addProduct() {
         const productName = input.value.trim();
         if (productName !== '') {
@@ -164,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         updateStatistics();
     }
-    
+
     productList.addEventListener('click', function (event) {
         const target = event.target;
         const productDiv = target.closest('.product');
@@ -173,42 +166,45 @@ document.addEventListener('DOMContentLoaded', function () {
             const quantitySpan = productDiv.querySelector('.square');
             const minusButton = productDiv.querySelector('.minus');
             const plusButton = productDiv.querySelector('.plus');
-        
+
             let productNameLabel = productDiv.querySelector('.nameProduct');
             const productName = productDiv.getAttribute('data-product-name');
 
-             if (productNameLabel === target) {
+            if (productNameLabel === target) {
                 let originalName = productNameLabel.textContent.trim();
                 const inputField = document.createElement('input');
                 inputField.type = 'text';
-                inputField.value = productNameLabel.textContent; // Set initial value
+                inputField.value = productNameLabel.textContent;
                 inputField.style.width = '5em';
                 productNameLabel.replaceWith(inputField);
                 inputField.focus();
 
                 inputField.addEventListener('keypress', function (event) {
-                    const existingProducts = document.querySelectorAll('.product');
                     if (event.key === 'Enter') {
                         const editedName = inputField.value.trim();
+                        const existingProducts = document.querySelectorAll('.product');
                         let isDuplicate = false;
 
-                    existingProducts.forEach(product => {
-                      const productNameAttr = product.getAttribute('data-product-name');
-                      if (productNameAttr && productNameAttr.toLowerCase() === editedName) {
-                         alert('Продукт з такою назвою вже існує!');
-                         isDuplicate = true;
-                        return;
-                }
-            }); 
-                      productNameLabel.textContent = editedName;
-                        productDiv.setAttribute('data-product-name',editedName );
-                        editProductName(productName, editedName);
-                        inputField.replaceWith(productNameLabel);
-                        saveToLocalStorage(editedName);
-            
-                }});
+                        existingProducts.forEach(product => {
+                            const productNameAttr = product.getAttribute('data-product-name');
+                            if (productNameAttr && productNameAttr.toLowerCase() === editedName.toLowerCase() && productNameAttr !== originalName.toLowerCase()) {
+                                alert('Продукт з такою назвою вже існує!');
+                                isDuplicate = true;
+                                return;
+                            }
+                        });
+
+                        if (!isDuplicate) {
+                            productNameLabel.textContent = editedName;
+                            productDiv.setAttribute('data-product-name', editedName);
+                            editProductName(originalName, editedName);
+                            inputField.replaceWith(productNameLabel);
+                            saveToLocalStorage(editedName);
+                        }
+                    }
+                });
             }
-            
+
             if (target.classList.contains('cross')) {
                 removeProduct(productName);
             } else if (target.classList.contains('minus')) {
@@ -217,13 +213,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     quantitySpan.textContent = quantity - 1;
                     updateStatistics(productDiv);
                     if (quantity === 2) {
-                        minusButton.disabled = true; // Блокуємо кнопку зменшення
+                        minusButton.disabled = true;
                     }
                 } else if (quantity === 1) {
-                    minusButton.disabled = true; 
+                    minusButton.disabled = true;
                     updateStatistics(productDiv);
                 }
-            
+
             } else if (target.classList.contains('plus')) {
                 let quantity = parseInt(quantitySpan.textContent);
                 quantitySpan.textContent = quantity + 1;
@@ -237,11 +233,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     plusButton.style.visibility = 'hidden';
                     productDiv.querySelector('.cross').style.visibility = 'hidden';
                     const boughtItem = boughtItems.querySelector(`[data-product-name="${productName}"]`);
-                   if (boughtItem) {
-                       boughtItems.removeChild(boughtItem);
+                    if (boughtItem) {
+                        boughtItems.removeChild(boughtItem);
                     }
                     leftItems.appendChild(boughtItem);
-                   updateStatistics();
+                    updateStatistics();
 
                 } else {
                     productNameLabel.style.textDecoration = 'none';
@@ -250,37 +246,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     plusButton.style.visibility = 'visible';
                     productDiv.querySelector('.cross').style.visibility = 'visible';
                     const leftItem = leftItems.querySelector(`[data-product-name="${productName}"]`);
-                   if (leftItem) {
-                    boughtItems.appendChild(leftItem); // Видаляємо з boughtItems
-                    leftItems.removeChild(leftItem); // Додаємо до leftItems
+                    if (leftItem) {
+                        leftItems.removeChild(leftItem);
+                    }
+                    boughtItems.appendChild(leftItem);
                     updateStatistics();
-                      }
-                   updateStatistics();
                 }
             }
         }
     });
 
     addButton.addEventListener('click', addProduct);
-
     input.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             addProduct();
         }
     });
 
-    function updateStatistics(productDiv) {
-        if (productDiv) {
-            const productName = productDiv.querySelector('.nameProduct').textContent;
-            const quantitySpan = productDiv.querySelector('.square');
-            const quantity = parseInt(quantitySpan.textContent);
-            const leftItem = boughtItems.querySelector(`[data-product-name="${productName}"]`);
-            if (leftItem) {
-                leftItem.querySelector('.circle').textContent = quantity;
-            }
-        }
-    }
-
-    window.onload = displayFromSt;
-   
+    displayFromSt();
 });
