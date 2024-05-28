@@ -17,25 +17,33 @@
         </div>
 
        <div id="productList"> 
+        <!-- 
         <div class="product">
             <div class="namePr">
-            <label class="nameProduct tomatoes">Помідори</label>
-            </div>
+         <label class="nameProduct" id="firstItem" data-product-name="Помідори"></label>
+            </div>-
             <div class="funcButtons">
-              <!-- <button class="crossUmv">-</button>--> 
+                <button class="minus tooltip">-
+                <span class="tooltiptext">Зменшити кількість продукту</span>   
+            </button>
                 <span class="square">2</span>
-               <!--  <button class="crossUmv">+</button>--> 
+             <button class="plus tooltip">+
+                <span class="tooltiptext">Збільшити кількість продукту</span>   
+            </button>
              </div>
              <div>
-               <button class="crossUmv">x</button>
+             
             <button class="bought tooltip">Не куплено
                 <span class="tooltiptext">Продукт не було куплено</span>   
             </button>
+            <button class="cross tooltip" >x
+                <span class="tooltiptext">Закрити</span>   
+            </button>
              </div>
-        </div>
+        </div>-
         <div class="product">
             <div class="namePr">
-            <label class="nameProduct cookie ">Печиво</label>
+            <label class="nameProduct cookie " id="secondItem" data-product-name="Печиво"></label>
             </div>
           <div class="funcButtons">
             <button class="minus tooltip">-
@@ -47,16 +55,18 @@
             </button>
          </div>
          <div class="boughtT"> 
-            <button class="bought tooltip">Куплено
-                <span class="tooltiptext">Продукт було куплено</span>   
+            <button class="bought tooltip">Не куплено
+                <span class="tooltiptext">Продукт не було куплено</span>   
             </button>
-            <button class="cross tooltip">x
+
+           <button class="cross tooltip">x
                 <span class="tooltiptext">Закрити</span>   
             </button>
             </div>
         </div>
         <div class="product">
             <div class="namePr">
+                <label class="nameProduct cookie " id="thirdItem" data-product-name="Сир"></label>
            <input type="text" placeholder="сир"  class="nameProduct ">
            </div>
            <div class="funcButtons">
@@ -70,7 +80,7 @@
             </button>
          </div>
          <div class="boughtT"> 
-            <button class="bought tooltip">Куплено
+            <button class="bought tooltip">Не куплено
                 <span class="tooltiptext">Продукт було куплено</span>   
             </button>
             <button class="cross tooltip">x
@@ -78,7 +88,7 @@
             </button>
         </div> 
         </div>
-    </div>  
+    </div>  -->
         </section>
         <section class="section block2">
           <div id ="left"> 
@@ -87,8 +97,9 @@
          </div> 
          <div class="product"> 
             <div class="boughtItems">
-            <button class="bought">Печиво <span class="circle">2</span></button>
-            <button class="bought cheese">Сир <span class="circle">1</span></button>
+       <!-- <button class="bought" data-product-name="Печиво">Печиво <span class="circle">2</span></button>
+            <button class="bought cheese" data-product-name="Сир">Сир <span class="circle">1</span></button>-->
+         
             </div>
         </div>  
     </div> 
@@ -97,9 +108,12 @@
         <div class="title">
             <label class="boughtTitle">Куплено</label>
         </div> 
-        <div class="product tomatoes left"> 
-            <button class="bought ">Помідори</button>
-        </div>  
+     <div class="product">
+        <div class="left" >
+           <!-- <button class="bought" data-product-name="Помідори">Помідори</button>
+            <button class="bought" data-product-name="Помідори">Помідори</button>
+        </div>  -->
+    </div>
     </div>   
         </section>
 
