@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const leftItems = document.querySelector('.left');
     const block1 = document.querySelector('.block1');
     const block2 = document.querySelector('.block2');
+    
 
     function displayFromSt() {
         const fI = localStorage.getItem("firstItem");
@@ -103,27 +104,35 @@ document.addEventListener('DOMContentLoaded', function () {
             const leftItem = boughtItems.querySelector(`[data-product-name="${originalName}"]`);
             const quantitySpan = productDiv.querySelector('.square');
     
-            if (productNameLabel) {
-                productNameLabel.textContent = newName;
-            }
-            if (leftItem) {
-                leftItem.setAttribute('data-product-name', newName);
-                leftItem.querySelector('.secondBlocktext').textContent = newName;
-            }
-            if (quantitySpan && leftItem) {
-                const quantity = parseInt(quantitySpan.textContent);
-                leftItem.querySelector('.circle').textContent = quantity;
-            }
+            // Check if the new name already exists among existing products
+            const existingProducts = document.querySelectorAll('.product');
+            let isDuplicate = false;
+            existingProducts.forEach(product => {
+                const productNameAttr = product.getAttribute('data-product-name');
+                if (productNameAttr && productNameAttr.toLowerCase() === newName.toLowerCase() && productNameAttr !== originalName) {
+                    alert('Продукт з такою назвою вже існує!');
+                    isDuplicate = true;
+                    return;
+                }
+            });
     
-            productDiv.setAttribute('data-product-name', newName);
-            const textOfDiv = productDiv.querySelector('.secondBlocktext');
-            if (textOfDiv) {
-                textOfDiv.textContent = newName;
+            if (!isDuplicate) {
+                if (productNameLabel) {
+                    productNameLabel.textContent = newName;
+                }
+                if (leftItem) {
+                    leftItem.setAttribute('data-product-name', newName);
+                    leftItem.querySelector('.secondBlocktext').textContent = newName;
+                }
+                if (quantitySpan && leftItem) {
+                    const quantity = parseInt(quantitySpan.textContent);
+                    leftItem.querySelector('.circle').textContent = quantity;
+                }
             }
-    
-            updateStatistics(); // Call any relevant update function
         }
     }
+    
+    
     
     
     function addProduct() {
@@ -178,13 +187,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 inputField.focus();
 
                 inputField.addEventListener('keypress', function (event) {
+                    const existingProducts = document.querySelectorAll('.product');
                     if (event.key === 'Enter') {
                         const editedName = inputField.value.trim();
-                        productNameLabel.textContent = editedName;
+                        let isDuplicate = false;
+
+                    existingProducts.forEach(product => {
+                      const productNameAttr = product.getAttribute('data-product-name');
+                      if (productNameAttr && productNameAttr.toLowerCase() === editedName) {
+                         alert('Продукт з такою назвою вже існує!');
+                         isDuplicate = true;
+                        return;
+                }
+            }); 
+                      productNameLabel.textContent = editedName;
                         productDiv.setAttribute('data-product-name',editedName );
                         editProductName(productName, editedName);
                         inputField.replaceWith(productNameLabel);
                         saveToLocalStorage(editedName);
+            
                 }});
             }
             
